@@ -3,6 +3,20 @@
 
 如果存在则 telnet 连接并关闭 vstack 配置。
 
+### 依赖
+需要 nmap 和 IPy
+以 centos 为例
+```
+yum -y install epel-release
+yum -y install python-pip
+yum -y install nmap
+pip install virtualenv
+
+virtualenv ./env
+source env/bin/activate
+pip install -r requirement.txt
+```
+
 ### 配置
 
 在脚本的开始修改基本配置
