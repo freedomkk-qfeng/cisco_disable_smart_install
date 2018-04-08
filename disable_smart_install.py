@@ -4,6 +4,8 @@ import os
 from IPy import IP
 from multiprocessing.dummy import Pool as ThreadPool
 
+threads = 32
+ips = "192.168.0.0/24"
 password = "123456"
 en_password = "654321"
 ##############################################################
@@ -46,11 +48,10 @@ def do(ip):
 	host = str(ip)
 	if nmap_check(host) == True:
 		no_smart(host,password,en_password)
-		print host + "smart install disabled"
+		print host + " smart install disabled"
 
 if __name__=='__main__':
-	ips = "192.168.0.0/24"
-	pool = ThreadPool(32)
+	pool = ThreadPool(threads)
 	pool.map(do,IP(ips))
 	pool.close()
 	pool.join()
