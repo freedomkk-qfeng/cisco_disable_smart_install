@@ -24,6 +24,7 @@ def no_smart(host,password,en_password):
 	tn.write(en_password + '\n')
 	tn.read_until('#')
 	tn.write("conf t"+"\n")
+	tn.read_until('#')
 	tn.write('no vstack'+'\n')
 	tn.write('do wr'+'\n')
 	while True:
